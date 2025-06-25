@@ -10,34 +10,34 @@ interface MainContentProps {
 
 const MainContent = ({ activeSection }: MainContentProps) => {
   return (
-    <main className="relative z-10 flex items-center justify-center min-h-screen pt-20 md:pt-0">
-      <div className="w-full max-w-5xl mx-auto px-8 md:pl-32">
-        <div className="relative min-h-[600px] flex items-center justify-center">
+    <main className="relative z-10 flex items-center justify-center min-h-screen">
+      <div className="w-full max-w-4xl mx-auto px-8">
+        <div className="relative">
           <div
-            className={`transition-all duration-1000 ease-out ${
+            className={`transition-all duration-700 ease-in-out ${
               activeSection === 'about'
-                ? 'opacity-100 translate-y-0 scale-100'
-                : 'opacity-0 translate-y-8 scale-95 pointer-events-none absolute inset-0'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4 pointer-events-none absolute inset-0'
             }`}
           >
             <AboutSection />
           </div>
           
           <div
-            className={`transition-all duration-1000 ease-out ${
+            className={`transition-all duration-700 ease-in-out ${
               activeSection === 'projects'
-                ? 'opacity-100 translate-y-0 scale-100'
-                : 'opacity-0 translate-y-8 scale-95 pointer-events-none absolute inset-0'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4 pointer-events-none absolute inset-0'
             }`}
           >
             <ProjectsSection />
           </div>
           
           <div
-            className={`transition-all duration-1000 ease-out ${
+            className={`transition-all duration-700 ease-in-out ${
               activeSection === 'contact'
-                ? 'opacity-100 translate-y-0 scale-100'
-                : 'opacity-0 translate-y-8 scale-95 pointer-events-none absolute inset-0'
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4 pointer-events-none absolute inset-0'
             }`}
           >
             <ContactSection />

@@ -8,7 +8,7 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState('about');
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black font-sans">
+    <div className="relative w-full h-screen overflow-hidden bg-black">
       <StarryBackground />
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
       <MainContent activeSection={activeSection} />
