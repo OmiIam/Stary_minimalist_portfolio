@@ -10,8 +10,8 @@ interface MainContentProps {
 
 const MainContent = ({ activeSection }: MainContentProps) => {
   return (
-    <main className="relative z-10 flex items-center justify-center min-h-screen">
-      <div className="w-full max-w-5xl mx-auto px-8">
+    <main className="relative z-10 flex items-center justify-center min-h-screen pt-20 md:pt-0">
+      <div className="w-full max-w-5xl mx-auto px-8 md:pl-32">
         <div className="relative min-h-[600px] flex items-center justify-center">
           <div
             className={`transition-all duration-1000 ease-out ${
