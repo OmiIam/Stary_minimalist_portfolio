@@ -1,5 +1,7 @@
 
 import React from 'react';
+import SectionWrapper from '../ui/SectionWrapper';
+import SectionHeader from '../ui/SectionHeader';
 
 const ContactSection = () => {
   const contacts = [
@@ -16,44 +18,53 @@ const ContactSection = () => {
     {
       label: "GitHub",
       value: "godsonigoniwari",
-      href: "https://github.com/godsonigoniwari"
+      href: "https://github.com/OmiIam"
     }
   ];
 
   return (
-    <div className="text-center space-y-12">
-      <div className="space-y-4">
-        <h1 className="text-6xl md:text-8xl font-extralight text-white tracking-tight">
-          Contact
-        </h1>
-        <div className="w-24 h-px bg-gray-400 mx-auto"></div>
-      </div>
+    <SectionWrapper>
+      <SectionHeader 
+        title="Contact"
+        subtitle="Let's create something beautiful together."
+      />
       
-      <div className="max-w-xl mx-auto">
-        <p className="text-xl text-gray-300 font-light leading-relaxed mb-12">
-          Let's create something beautiful together.
-        </p>
-        
-        <div className="space-y-6">
+      <div className="max-w-3xl mx-auto">
+        {/* Contact Links Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
           {contacts.map((contact, index) => (
             <a
               key={index}
               href={contact.href}
-              className="group block p-4 border border-gray-800 hover:border-gray-600 transition-all duration-300"
+              className="group p-4 glass-card hover-lift transition-all duration-500 hover:shadow-lg hover:shadow-white/5 animate-stagger text-center"
+              style={{
+                animationDelay: `${index * 100}ms`
+              }}
+              aria-label={`Contact via ${contact.label}`}
             >
-              <div className="flex justify-between items-center">
-                <span className="text-gray-400 text-sm uppercase tracking-wide">
+              <div className="space-y-2">
+                <h3 className="text-gray-400 text-xs uppercase tracking-wider group-hover:text-gray-300 transition-colors duration-300">
                   {contact.label}
-                </span>
-                <span className="text-white font-light group-hover:text-gray-300 transition-colors">
+                </h3>
+                <p className="text-white text-sm font-light group-hover:text-gray-300 transition-colors duration-300">
                   {contact.value}
-                </span>
+                </p>
               </div>
             </a>
           ))}
         </div>
+        
+        {/* Call to Action */}
+        <div className="mt-8 text-center">
+          <p className="text-gray-300 text-sm leading-relaxed mb-2">
+            I'm always excited to collaborate on new projects and discuss opportunities.
+          </p>
+          <p className="text-gray-500 text-xs">
+            Available for freelance projects and full-time opportunities
+          </p>
+        </div>
       </div>
-    </div>
+    </SectionWrapper>
   );
 };
 

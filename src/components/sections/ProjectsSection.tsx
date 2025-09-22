@@ -1,57 +1,71 @@
 
 import React from 'react';
+import SectionWrapper from '../ui/SectionWrapper';
+import SectionHeader from '../ui/SectionHeader';
+import ProjectCard from '../ui/ProjectCard';
 
 const ProjectsSection = () => {
   const projects = [
     {
       title: "Minimal Dashboard",
-      description: "Clean interface design",
-      tech: "React, TypeScript"
+      description: "A clean, intuitive dashboard interface built with modern web technologies. Features real-time data visualization and responsive design principles.",
+      tech: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+      githubUrl: "https://github.com/OmiIam/minimal-dashboard",
+      liveUrl: "https://minimal-dashboard-demo.vercel.app"
     },
     {
       title: "Interactive Portfolio",
-      description: "Motion-driven experience",
-      tech: "Next.js, Framer Motion"
+      description: "A motion-driven portfolio experience showcasing creative development skills. Features smooth animations and engaging user interactions.",
+      tech: ["Next.js", "Framer Motion", "TypeScript", "GSAP"],
+      githubUrl: "https://github.com/OmiIam/interactive-portfolio",
+      liveUrl: "https://interactive-portfolio.vercel.app"
     },
     {
-      title: "Brand Identity",
-      description: "Visual system design",
-      tech: "Figma, After Effects"
+      title: "Law Firm Website",
+      description: "Professional website design for a law firm, featuring clean typography, modern layout, and client-focused user experience.",
+      tech: ["React", "shadcn/ui", "Tailwind CSS", "TypeScript"],
+      githubUrl: "https://github.com/OmiIam/law-firm-website",
+      liveUrl: "https://ejewekelegal.com"
     }
   ];
 
   return (
-    <div className="space-y-12">
-      <div className="text-center space-y-4">
-        <h1 className="text-6xl md:text-8xl font-extralight text-white tracking-tight">
-          Projects
-        </h1>
-        <div className="w-24 h-px bg-gray-400 mx-auto"></div>
-      </div>
+    <SectionWrapper>
+      <SectionHeader 
+        title="Projects"
+        subtitle="A collection of my recent work, showcasing expertise in modern web development and design."
+      />
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="group p-6 border border-gray-800 hover:border-gray-600 transition-all duration-300 cursor-pointer"
-          >
-            <div className="space-y-4">
-              <h3 className="text-xl text-white font-light group-hover:text-gray-300 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-gray-400 text-sm">
-                {project.description}
-              </p>
-              <div className="pt-2">
-                <span className="text-xs text-gray-500 uppercase tracking-wide">
-                  {project.tech}
-                </span>
-              </div>
-            </div>
-          </div>
-        ))}
+      <div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              tech={project.tech}
+              githubUrl={project.githubUrl}
+              liveUrl={project.liveUrl}
+              index={index}
+            />
+          ))}
+        </div>
+        
+        <div className="mt-8 text-center">
+          <p className="text-gray-400 text-xs">
+            More projects available on{' '}
+            <a 
+              href="https://github.com/OmiIam" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300 transition-colors duration-300 underline"
+            >
+              GitHub
+            </a>
+          </p>
+        </div>
       </div>
-    </div>
+    </SectionWrapper>
   );
 };
 
